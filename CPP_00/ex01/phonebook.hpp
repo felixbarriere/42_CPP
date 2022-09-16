@@ -4,8 +4,12 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
+#include <sstream>
+#include "contact.hpp"
 #include "colors.hpp"
+
+#define SSTR( x ) static_cast< std::ostringstream & >(( std::ostringstream() << std::dec << x )).str()
+
 
 /* utiliser struct dans le cas d’une simple agrégation de données 
 et de réserver class quand il y a présence d’au moins un invariant. */
@@ -26,6 +30,8 @@ et de réserver class quand il y a présence d’au moins un invariant. */
 // /********************************************************/
 
 
+
+
 class phonebook
 {
 	public:
@@ -33,36 +39,16 @@ class phonebook
 
 	phonebook(void);    //constructeur
 	~phonebook(void);   //destructeur
-	/* attention aux conversions implicites dans les constructeurs */
-	/* fonctions membres et variables publiques */
-	// void	my_push_back(contact contact);
-	void	test_function() const;
 
-	// std::vector<std::string>		add_contact(std::string contact);    //noexcept?
-	int								total;
-	std::vector<contact>		contact_list[7];
+	void	test_function() const;
+	// int		ft_strlen(std::string str);
+	// std::string	ft_return_ten(std::string	str);
+
+	int			total;
+	int			index;
+	contact		contact_list[8];
 
 	// int		count_contact(void);
 
 	private:
-};
-
-class contact
-{
-	public:
-	/* fonctions membres */
-	// contact(void);
-	// ~contact(void);
-	std::string		create_contact(std::string input);
-	std::string		first_name;
-	std::string		last_name;
-	std::string		nickname;
-	std::string		phone;
-	std::string		secret;
-
-	private:
-	/* variables */
-	// int			number;
-	// std::string	name;
-	
 };
