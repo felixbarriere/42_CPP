@@ -7,13 +7,18 @@
 // #include "phonebook.hpp"
 #include "colors.hpp"
 
+
+
 class contact
 {
 	public:
-	/* fonctions membres */
-	// contact(void);
+	contact(void);
+	contact(int	test);
 	// ~contact(void);
+	/* fonctions membres */
+
 	std::string		create_contact(std::string input);
+	
 	std::string		first_name;
 	std::string		last_name;
 	std::string		nickname;
@@ -23,6 +28,7 @@ class contact
 
 	private:
 	/* variables */
+	
 	// int			number;
 	// std::string	name;
 	

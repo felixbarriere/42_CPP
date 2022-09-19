@@ -41,9 +41,10 @@ class phonebook
 	~phonebook(void);   //destructeur
 
 	void		test_function() const;
-	void		create_contact(std::string to_change, std::string input);
+	void		display_contact(phonebook *repertoire, std::string	index_string, int i);
 
-	// int		ft_strlen(std::string str);
+	// void		create_contact(std::string to_change, std::string input);
+
 	// std::string	ft_return_ten(std::string	str);
 
 	int			total;
@@ -56,5 +57,4 @@ class phonebook
 };
 
 std::string		ft_return_ten(std::string	str);
-int				ft_strlen(std::string str);
 std::string		create_contact(std::string input);

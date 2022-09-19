@@ -13,26 +13,37 @@ phonebook::phonebook(void)
 
 phonebook::~phonebook(void)
 {
-	std::cout <<  RED"destructor called" WHT << std::endl;
+	std::cout <<  RED "destructor called" WHT << std::endl;
 	return;
 }
 
 /********************* Member functions *********************/
 
+void			phonebook::display_contact(phonebook *repertoire, std::string	index_string, int i)
+{
+	std::cout << ft_return_ten(index_string) << "|" << ft_return_ten(repertoire->contact_list[i].first_name) << "|"
+			<< ft_return_ten(repertoire->contact_list[i].last_name) << "|" << ft_return_ten(repertoire->contact_list[i].nickname) << std::endl;
+	// (void)repertoire;
+	// (void)index_string;
+	// (void)i;
+	std::cout << "test\n" << std::endl;
+}
+
+
 std::string		ft_return_ten(std::string	str)
 {
 	std::string			new_str;
-	int					i = 0;
-	int					j = 0;
+	size_t				i = 0;
+	size_t				j = 0;
 
-	if (ft_strlen(str) > 9)
+	if (str.size() > 9)
 	{
 		str[9] = '.';
 		str.resize(10);
 	}
 	else
 	{
-		while (i < (10 - ft_strlen(str)))
+		while (i < (10 - str.size()))
 		{
 			new_str.insert(i, 1, ' ');
 			i++;
