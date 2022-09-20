@@ -4,7 +4,9 @@
 
 #include <iostream>
 #include <string>
+#include <stdlib.h>
 #include <sstream>
+#include <cctype>
 #include "contact.hpp"
 #include "colors.hpp"
 
@@ -35,26 +37,22 @@ et de réserver class quand il y a présence d’au moins un invariant. */
 class phonebook
 {
 	public:
+	phonebook(void);
 	/* constructeur:"fonction" permettant de verifier un contrat avant la creation" */
+	// phonebook(void);
 
-	phonebook(void);    //constructeur
-	~phonebook(void);   //destructeur
+	
+	void		ft_add(void);
+	void		ft_search(void);
+	void		display_contact(int i);
+	std::string	ft_return_ten(std::string	str);
+	int			ft_isnumber(std::string input);
 
-	void		test_function() const;
-	void		display_contact(phonebook *repertoire, std::string	index_string, int i);
-
-	// void		create_contact(std::string to_change, std::string input);
-
-	// std::string	ft_return_ten(std::string	str);
-
-	int			total;
-	int			index;
-	contact		contact_list[8];
-
-	// int		count_contact(void);
 
 	private:
+	int			index;
+	int			total;
+	contact		contact_list[8];
 };
 
-std::string		ft_return_ten(std::string	str);
 std::string		create_contact(std::string input);
