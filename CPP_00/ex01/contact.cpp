@@ -17,7 +17,7 @@ contact::contact(int test)
 	}
 	std::cout << GRN "Type the first name of your contact: " WHT << std::endl;
 	std::cin >> input;
-	this->first_name = create_contact(input);				
+	this->first_name = createContact(input);				
 	std::cout << GRN "Type the last name of your contact: " WHT << std::endl;
 	std::cin >> input;
 	this->last_name = input;				
@@ -34,37 +34,37 @@ contact::contact(int test)
 	return;
 }
 
-int				contact::get_index(void) const
+int				contact::getIndex(void) const
 {
 	return (this->index);
 }
 
-std::string		contact::get_firstname(void) const
+std::string		contact::getFirstname(void) const
 {
 	return (this->first_name);
 }
 
-std::string		contact::get_lastname(void) const
+std::string		contact::getLastname(void) const
 {
 	return (this->last_name);
 }
 
-std::string		contact::get_nickname(void) const
+std::string		contact::getNickname(void) const
 {
 	return (this->nickname);
 }
 
-std::string		contact::create_contact(std::string input)
+std::string		contact::createContact(std::string input)
 {
 	return (input);
 }
 
-void			contact::set_index(int	i)
+void			contact::setIndex(int	i)
 {
 	this->index = i;
 }
 
-void			contact::set_index_inc(void)
+void			contact::setIndexInc(void)
 {
 	this->index++;
 }

@@ -44,9 +44,9 @@ class phonebook
 	
 	void		ft_add(void);
 	void		ft_search(void);
-	void		display_contact(int i);
-	std::string	ft_return_ten(std::string	str);
-	int			ft_isnumber(std::string input);
+	void		displayContact(int i);
+	std::string	ft_returnTen(std::string	str);
+	int			ft_isNumber(std::string input);
 
 
 	private:
@@ -55,4 +55,4 @@ class phonebook
 	contact		contact_list[8];
 };
 
-std::string		create_contact(std::string input);
+std::string		createContact(std::string input);

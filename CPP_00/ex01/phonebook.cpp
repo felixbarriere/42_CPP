@@ -11,7 +11,7 @@ phonebook::phonebook(void)
 
 /********************* Member functions *********************/
 
-int	phonebook::ft_isnumber(std::string input)
+int	phonebook::ft_isNumber(std::string input)
 {
 	int i = 0;
 
@@ -33,7 +33,7 @@ void	phonebook::ft_add(void)
 {
 	contact			new_contact(1);  //forme canonique (créé un deuxieme type de constructeur)
 
-	new_contact.set_index(this->index);
+	new_contact.setIndex(this->index);
 	if (this->total <= 7)
 	{
 		this->contact_list[this->index] = new_contact;
@@ -45,11 +45,11 @@ void	phonebook::ft_add(void)
 		if (this->index > 7)
 		{
 			this->index = 0;
-			new_contact.set_index(0);
+			new_contact.setIndex(0);
 		}
 		this->contact_list[this->index] = new_contact;
 		this->index++;
-		new_contact.set_index_inc();
+		new_contact.setIndexInc();
 	}
 }
 
@@ -66,7 +66,7 @@ void	phonebook::ft_search(void)
 		std::cout << "     index|first name| last name|  nickname" << std::endl;
 		while (i < this->total)
 		{
-			this->display_contact(i);
+			this->displayContact(i);
 			i++;
 		}
 		std::cout << std::endl;
@@ -76,7 +76,7 @@ void	phonebook::ft_search(void)
 			std::cin >> input;
 			if(std::cin.eof() || !input.compare("exit"))
 				break;
-			else if (!ft_isnumber(input))
+			else if (!ft_isNumber(input))
 				std::cout << RED "Please type a number" << std::endl << std::endl;
 			else
 			{
@@ -85,23 +85,23 @@ void	phonebook::ft_search(void)
 					std::cout << RED "We couldn't find your contact"  << std::endl << std::endl;
 				else
 				{
-					this->display_contact(i);
+					this->displayContact(i);
 				}
 			}
 		}
 	}
 }
 
-void	phonebook::display_contact(int i)
+void	phonebook::displayContact(int i)
 {
-	std::string	index_string = SSTR(this->contact_list[i].get_index());
+	std::string	index_string = SSTR(this->contact_list[i].getIndex());
 
-	std::cout << ft_return_ten(index_string) << "|" << ft_return_ten(this->contact_list[i].get_firstname()) << "|"
-			<< ft_return_ten(this->contact_list[i].get_lastname()) << "|" 
-			<< ft_return_ten(this->contact_list[i].get_nickname())  << std::endl;
+	std::cout << ft_returnTen(index_string) << "|" << ft_returnTen(this->contact_list[i].getFirstname()) << "|"
+			<< ft_returnTen(this->contact_list[i].getLastname()) << "|" 
+			<< ft_returnTen(this->contact_list[i].getNickname())  << std::endl;
 }
 
-std::string		phonebook::ft_return_ten(std::string	str)
+std::string		phonebook::ft_returnTen(std::string	str)
 {
 	std::string			new_str;
 	size_t				i = 0;

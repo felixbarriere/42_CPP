@@ -14,17 +14,17 @@ class contact
 	contact(void);
 	contact(int	test);   //second constructeur (polymorphisme) afin de permettre à la fonction ADD de ne pas se lancer directement
 
-	std::string		create_contact(std::string input);
+	std::string		createContact(std::string input);
 
 	/* getters */
-	int				get_index(void) const;	
-	std::string		get_firstname(void) const;
-	std::string		get_lastname(void) const;
-	std::string		get_nickname(void) const;
+	int				getIndex(void) const;	
+	std::string		getFirstname(void) const;
+	std::string		getLastname(void) const;
+	std::string		getNickname(void) const;
 
 	/* setters */
-	void			set_index(int	i);
-	void			set_index_inc(void);
+	void			setIndex(int	i);
+	void			setIndexInc(void);
 	
 
 	private:
