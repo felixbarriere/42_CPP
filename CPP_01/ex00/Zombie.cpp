@@ -2,12 +2,16 @@
 
 Zombie::Zombie( void )
 {
-	this->name = "NULL";
+	return ;
 }
 
-void 		Zombie::announce( void )
+Zombie::~Zombie( void )
 {
-	// chaque zombie se présente
+	std::cout << this->name << " died" << std::endl;
+}
+
+void 		Zombie::announce( void ) const
+{
 	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
@@ -16,19 +20,11 @@ void		Zombie::setName(std::string name)
 	this->name = name;
 }
 
-Zombie* 	Zombie::newZombie( std::string name )
+std::string Zombie::getName(void) const
 {
-	Zombie	*new_Zombie;
-
-	new_Zombie->setName(name);
-
-	return (new_Zombie);
+	return (this->name);
 }
 
-void 		Zombie::randomChump( std::string name )
-{
-	Zombie	new_Zombie;
 
-	new_Zombie.setName(name);
-	std::cout << new_Zombie.name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
+
+
