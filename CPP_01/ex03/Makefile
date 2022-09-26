@@ -1,11 +1,14 @@
 SRCS = 	main.cpp \
+		HumanA.cpp \
+		HumanB.cpp \
+		Weapon.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
 CC = g++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
-NAME = cerveau
+NAME = violence
 
 .c.o:
 		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
