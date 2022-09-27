@@ -1,6 +1,10 @@
 #include <iostream>
 #include <fstream>
 
+/* .find():
+The position of the first character of the first match.
+If no matches were found, the function returns string::npos. */
+
 int	main(int	ac, char **av)
 {
 
@@ -17,24 +21,32 @@ int	main(int	ac, char **av)
 	std::ifstream		ifs(av[1]);          //infile stream
 	std::ofstream		ofs(fileReplace);
 	std::string			occurence;
+	size_t				compResult;
+	std::string			lineTemp;
 
-	ifs >> occurence;
-	while (ifs)
+	while (1)
 	{
-		if (!occurence.compare(s1))
+
+		std::getline(ifs, lineTemp);
+		while (1)
 		{
-			std::cout << "same word" <<  std::endl;
-			std::cout << "occurence: " << occurence << std::endl;
-			std::cout << "s2: " << s1 << std::endl;
-			occurence = s2;
-		}
-		else if (ifs.eof())
-			break ;
-		else
-			std::cout << "different word" << std::endl;
-		ofs << occurence << " ";
-		ifs >> occurence;
-	}	
+			compResult = lineTemp.find(s1);
+			if (compResult == std::string::npos)
+			{
+				ofs << lineTemp;
+				break ;
+			}
+			else if (compResult != std::string::npos)
+			{
+				ofs << lineTemp.substr(0, compResult);
+				ofs << s2;
+				lineTemp = lineTemp.substr(compResult + s1.size());
+			}
+		}	
+		if (ifs.eof())
+			break;
+		ofs << std::endl;
+	}
 	ifs.close();
 	ofs.close();
 
