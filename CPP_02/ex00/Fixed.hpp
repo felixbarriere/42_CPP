@@ -16,7 +16,7 @@ class Fixed
 
 	private:
 		int					_i;
-		int	const static	_bits = 0;
+		int	const static	_bits = 8;
 };
 
 #endif
