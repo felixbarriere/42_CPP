@@ -1,13 +1,13 @@
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(std::string	name) : ClapTrap(name)
+DiamondTrap::DiamondTrap(std::string&	name) 
 {
-
-	ClapTrap::_name += "_clap_name";
-	this->setName(name + "_clap_name");
-	this->setHitPoints(FragTrap::getHitPoints());
-	this->setEnergyPoints(ScavTrap::getEnergyPoints());
-	this->setAttackDamage(FragTrap::getAttackDamage());
+	// : ClapTrap(name)
+	// ClapTrap::getName() += "_clap_name";
+	this->ClapTrap::setName(name + "_clap_name");
+	this->ClapTrap::setHitPoints(FragTrap::getHitPoints());
+	this->ClapTrap::setEnergyPoints(ScavTrap::getEnergyPoints());
+	this->ClapTrap::setAttackDamage(FragTrap::getAttackDamage());
 	
 	std::cout << "constructor DiamondTrap called " << std::endl;
 }
@@ -37,10 +37,10 @@ DiamondTrap&	DiamondTrap::operator=( DiamondTrap& rhs)
 {
 	std::cout << "DiamondTrap assignment operator called" << std::endl;
 
-	this->setName(rhs.getName());
-	this->setHitPoints(rhs.getHitPoints());
-	this->setEnergyPoints(rhs.getEnergyPoints());
-	this->setAttackDamage(rhs.getAttackDamage());
+	this->ClapTrap::setName(rhs.ClapTrap::getName());
+	this->ClapTrap::setHitPoints(rhs.ClapTrap::getHitPoints());
+	this->ClapTrap::setEnergyPoints(rhs.ClapTrap::getEnergyPoints());
+	this->ClapTrap::setAttackDamage(rhs.ClapTrap::getAttackDamage());
 
 	return (*this);
 }

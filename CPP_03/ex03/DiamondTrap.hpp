@@ -11,9 +11,9 @@
 class DiamondTrap : public FragTrap, public ScavTrap
 {
 	public:
-		DiamondTrap(std::string	name);   //_clap_name
+		DiamondTrap(std::string&	name);   //_clap_name
 		DiamondTrap( DiamondTrap&	copy);
-		~DiamondTrap();
+		~DiamondTrap(void);
 
 		DiamondTrap&	operator=( DiamondTrap& rhs);
 
@@ -22,9 +22,6 @@ class DiamondTrap : public FragTrap, public ScavTrap
 
 	private:
 		std::string		_name;  //= ClapTrap::_name;
-		// int				_hitPoints = FragTrap::getHitPoints();
-		// int				_energyPoints = ScavTrap::getEnergyPoints();
-		// int				_attackDamage = FragTrap::getAttackDamage();
 };
 
 #endif
