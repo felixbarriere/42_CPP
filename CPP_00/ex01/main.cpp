@@ -8,18 +8,18 @@ int	main(void)
 	while (1)
 	{
 		std::cout <<  WHT "Enter a command => ";
-		std::cin >> input;
+		std::getline(std::cin, input);
 
 		if (std::cin.eof() || !input.compare("EXIT"))
 		{
 			std::cout <<  "Closing phonebook" << std::endl;
 			return (0);
 		}
-		else if(!input.compare("ADD"))  // set_contact. mettre la variable en privee et creer un setter pour le modifier avec des conditions.
+		else if(!input.compare("ADD"))
 		{
 			repertoire.ft_add();
 		}
-		else if(!input.compare("SEARCH"))  //creer fonction membre get_contact (accesseur/getter)
+		else if(!input.compare("SEARCH"))
 		{
 			repertoire.ft_search();
 		}

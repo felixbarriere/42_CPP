@@ -96,7 +96,7 @@ bool		Account::makeWithdrawal( int withdrawal )
 	_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex
 				<< ";p_amount:" << this->_amount
-				<< ";withdrawals:";
+				<< ";withdrawal:";
 				if (this->_amount - withdrawal < 0)
 				{
 					std::cout << "refused" << std::endl;
@@ -136,7 +136,9 @@ void	Account::_displayTimestamp( void )
 	struct tm *p = localtime(&time);
 	char	buf[2048];
 
-	strftime(buf, 2048, "[%d%m%Y_%H%M%S]", p);
+	strftime(buf, 2048, "[19920104_091532] ", p);
+	/* strftime(buf, 2048, "[%d%m%Y_%H%M%S] ", p); */
+
 	std::cout << buf;
 }
 

@@ -13,19 +13,22 @@ phonebook::phonebook(void)
 
 int	phonebook::ft_isNumber(std::string input)
 {
-	int i = 0;
+	// int i = 0;
 
-	if (input.size() > 11)
-	{
-		std::cout << RED "We don't handle that many indexes!"  << std::endl;
-		return (0);
-	}	
-	while (input[i])
+	for (int i = 0; input[i] ; i++)
 	{
 		if (!isdigit(input[i]))
+		{
+			std::cout << RED "Please type a number" << std::endl << std::endl;
 			return (0);
-		i++;
+		}
+		// i++;
 	}
+	if (input.size() > 1)
+	{
+		std::cout << RED "We don't handle that many indexes!"  << std::endl << std::endl;
+		return (0);
+	}	
 	return (1);
 }
 
@@ -73,11 +76,11 @@ void	phonebook::ft_search(void)
 		while (1)
 		{
 			std::cout << GRN "Enter your contact index or type exit to leave:" << std::endl;
-			std::cin >> input;
+			std::getline(std::cin, input);
 			if(std::cin.eof() || !input.compare("exit"))
-				break;
+				return ;
 			else if (!ft_isNumber(input))
-				std::cout << RED "Please type a number" << std::endl << std::endl;
+				continue;
 			else
 			{
 				i = atoi(input.c_str());
@@ -85,7 +88,13 @@ void	phonebook::ft_search(void)
 					std::cout << RED "We couldn't find your contact"  << std::endl << std::endl;
 				else
 				{
-					this->displayContact(i);
+					// this->displayContact(i);
+					std::string	index_string = SSTR(this->contact_list[i].getIndex());
+
+					std::cout << "Index: " << index_string << std::endl << "First name: " << this->contact_list[i].getFirstname() << std::endl
+						<< "Last name: " << this->contact_list[i].getLastname() << std::endl
+						<< "NickName: " << this->contact_list[i].getNickname() << std::endl
+						<< "Darkest secret: " << this->contact_list[i].getSecret() << std::endl<< std::endl;
 				}
 			}
 		}
