@@ -11,7 +11,7 @@ class Animal
 		Animal(std::string	type);
 		Animal( Animal&	copy);
 
-		~Animal();
+		virtual ~Animal();
 
 		Animal&	operator=( const Animal& rhs);
 
