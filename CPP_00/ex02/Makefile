@@ -3,7 +3,7 @@ SRCS = 	tests.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
-CC = g++
+CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 NAME = dream_job
@@ -20,7 +20,7 @@ clean:
 		rm -f $(OBJS)
 
 fclean:
-	rm -f $(NAME)
+	rm -f $(NAME) $(OBJS)
 
 re: fclean all
 

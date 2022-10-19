@@ -14,12 +14,12 @@
 
 
 /* utiliser struct dans le cas d’une simple agrégation de données 
-et de réserver class quand il y a présence d’au moins un invariant. */
+et réserver class quand il y a présence d’au moins un invariant. */
 
 // class phonebook
 // {
 // 	public:
-// 	/* constructeur:"fonction" permettant de verifier un contrat avant la creation" */
+// 	/* constructeur:"fonction" permettant de verifier un contrat avant la creation */
 // 	/* attention aux conversions implicites dans les constructeurs */
 // 	/* fonctions membres et variables publiques */
 
@@ -39,15 +39,12 @@ class phonebook
 	public:
 	phonebook(void);
 	/* constructeur:"fonction" permettant de verifier un contrat avant la creation" */
-	// phonebook(void);
-
 	
 	void		ft_add(void);
 	void		ft_search(void);
 	void		displayContact(int i);
 	std::string	ft_returnTen(std::string	str);
 	int			ft_isNumber(std::string input);
-
 
 	private:
 	int			index;
