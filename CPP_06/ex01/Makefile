@@ -1,4 +1,4 @@
-NAME = serilisation
+NAME = serialisation
 SRCS = 	main.cpp \
 		data.cpp \
 

@@ -78,7 +78,7 @@ int	ft_isDouble(std::string str)
 	return (0);
 }
 
-int	ft_isFloat(std::string str)  //manque max
+int	ft_isFloat(std::string str)
 {
 	int neg = 0;
 
@@ -152,9 +152,7 @@ int main(int ac, char **av)
 			ft_displayFloat(str);
 		}
 		else if (ft_isChar(str))
-		{
 			ft_displayChar(str);
-		}
 		else if (ft_isMessage(str))
 			ft_displayMessage(str);
 		else
