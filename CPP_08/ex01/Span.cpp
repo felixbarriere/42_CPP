@@ -53,39 +53,41 @@ void			Span::addNumber(int toStore)
 {
 	if ((this->_size + 1) > this->_sizeMax )
 		throw Span::storageFull();
-	else
-	{
-		this->_size++;
-		this->_array.push_back(toStore);
-	}
+	this->_size++;
+	this->_array.push_back(toStore);
 }
 
 
 int				Span::shortestSpan(void)
 {
-	// std::vector<int>::const_iterator it;
-	// std::vector<int>::const_iterator it2;
-	// int		min = 0;
+	if (this->_size <= 1)
+		throw Span::notEnoughNumbers();
+	std::vector<int>::const_iterator it;
+	std::vector<int>::const_iterator it2;
+	// unsigned int	min = 4294967295 ;
+	int	min = 2147483647 ;
+	// int min =  abs(this->_array[0] - this->_array[1]);
 
-	// for (it = this->_array.begin(); it != this->_array.end(); it++)
-	// {
-	// 	if (*it < *(it - 1))
-	// 		min = abs(*(it) - *(it - 1));
-	// }
-	// std::cout << "min: " << min << std::endl;
-
-
-	return (0);
+	// std::sort(this->_array.begin(), this->_array.end());
+	for (it = this->_array.begin(); it != this->_array.end(); it++)
+	{
+		for (it2 = this->_array.begin(); it2 != this->_array.end(); it2++)
+		{
+			if( abs(*(it2) - (*it)) < min)
+				min = abs(*(it2) - (*it));
+		}
+	}
+	return (min);
 }
 
 
 int				Span::longestSpan(void)
 {
+	if (this->_size <= 1)
+		throw Span::notEnoughNumbers();
 	std::vector<int>::const_iterator it;
 	std::vector<int>::const_iterator it2;
 	int		max = 0;
-
-
 
 	for (it = this->_array.begin(); it != this->_array.end(); it++)
 	{
