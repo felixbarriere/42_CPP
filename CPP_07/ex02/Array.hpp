@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <string>
-#include <array>
+#include <stdint.h>
 #include "Array.tpp"
 
 #endif

@@ -5,7 +5,7 @@
 #include <string>
 
 template <typename T>
-void	iter( T array[], unsigned int length, void (*my_function)(T))
+void	iter( T array[], unsigned int length, void (*my_function)(T const &))
 {
 	for (unsigned int j = 0; j < length; j++)
 	{
@@ -14,7 +14,7 @@ void	iter( T array[], unsigned int length, void (*my_function)(T))
 }
 
 template <typename T>
-void		my_putstr(T str)
+void		my_putstr(T const & str)
 {
 	std::cout << str << std::endl;
 
@@ -23,7 +23,7 @@ void		my_putstr(T str)
 /* **************************************************** */
 
 template <typename T, typename U>
-void	iter( T array[], unsigned int length, U (*my_function)(U))
+void	iter( T array[], unsigned int length, U (*my_function)(U const &))
 {
 	for (unsigned int j = 0; j < length; j++)
 	{
@@ -32,9 +32,9 @@ void	iter( T array[], unsigned int length, U (*my_function)(U))
 }
 
 template <typename T>
-T		my_double(T x)
+T		my_double(T const & x)
 {
 	return (x * 2);
-
 }
+
 #endif

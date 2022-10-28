@@ -1,28 +1,23 @@
 #include "iter.hpp"
 
-// int	ft_strlen(std::string str)
-// {
-// 	size_t i = 0;
-// 	while ( i <= str.length())
-// 		i++;
-// 	return (i);
-// }
-
-
-
 int main()
 {
 		std::cout << std::endl << " \e[0;33m****** TEST string  ******\e[0m " << std::endl << std::endl;
 
 		std::string tab[]= {"hello", "bonjour", "hola"};
-		iter(tab, 3, &my_putstr);
+		iter(tab, 3, my_putstr);
 
-		std::cout << std::endl << " \e[0;33m****** TEST int/double  ******\e[0m " << std::endl << std::endl;
+		std::cout << std::endl << " \e[0;33m****** TEST double  ******\e[0m " << std::endl << std::endl;
 
-		// int tab2[]= { 4, 42, 21};
 		double tab2[]= { 8.23, 24.42, 32.21};
 		
-		iter(tab2, 3, &my_double<int>);
+		iter(tab2, 3, my_double<double>);
+
+		std::cout << std::endl << " \e[0;33m****** TEST int  ******\e[0m " << std::endl << std::endl;
+
+		int tab3[]= { 4, 42, 21};
+		
+		iter(tab3, 3, my_double<int>);
 
 	return (0);
 }

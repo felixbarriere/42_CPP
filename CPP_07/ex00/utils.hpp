@@ -19,14 +19,14 @@ template <typename T>
 
 T		my_min(T x, T y)
 {
-	return (x > y ? y : x);
+	return (x < y ? x : y);
 }
 
 template <typename T>
 
 T		my_max(T x, T y)
 {
-	return (x < y ? y : x);
+	return (x > y ? x : y);
 }
 
 

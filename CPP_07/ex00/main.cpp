@@ -30,9 +30,18 @@ int main()
 		std::cout << "min(i, j): " << my_min<int>(i, j) << std::endl;
 		std::cout << "min(f, g): " << my_min<double>(f, g) << std::endl;
 
-		std::cout << std::endl << " \e[0;33m****** MIN  ******\e[0m " << std::endl << std::endl;
+		std::cout << std::endl << " \e[0;33m****** MAX  ******\e[0m " << std::endl << std::endl;
 		std::cout << "max(i, j): " << my_max<int>(i, j) << std::endl;
 		std::cout << "max(f, g): " << my_max<double>(f, g) << std::endl;
+
+		std::cout << std::endl << " \e[0;33m****** MIN/MAX string ******\e[0m " << std::endl << std::endl;
+
+		std::string u = "chaine1";
+		std::string v = "chaine2";
+
+		std::cout << "u = " << u << ", v = " << v << std::endl;
+		std::cout << "my_min( u, v ) = " << my_min( u, v ) << std::endl;
+		std::cout << "my_max( u, v ) = " << my_max( u, v ) << std::endl;
 
 	}
 
