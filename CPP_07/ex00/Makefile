@@ -1,6 +1,5 @@
 NAME = Template1
 SRCS = 	main.cpp \
-		utils.cpp \
 
 OBJS_PATH = objects/
 OBJS = ${addprefix ${OBJS_PATH}, ${SRCS:.cpp=.o}}

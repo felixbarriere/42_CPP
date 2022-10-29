@@ -14,7 +14,37 @@ int main()
 		test[2] = 36;
 		test[3] = 1;
 
-		std::cout << test[2] << std::endl;
+		std::cout << test[0] << std::endl;
+	}
+	catch(const std::exception& e){
+		std::cerr << e.what() << std::endl; }
+	try
+	{
+		std::cout << std::endl << " \e[0;33m****** exception: test class Array<int> index neg  ******\e[0m " << std::endl << std::endl;
+
+		Array<int> test(10);
+
+		test[0] = 42;
+		test[1] = 24;
+		test[2] = 36;
+		test[3] = 1;
+
+		std::cout << test[-2] << std::endl;
+	}
+	catch(const std::exception& e){
+		std::cerr << e.what() << std::endl; }
+	try
+	{
+		std::cout << std::endl << " \e[0;33m****** exception: test class Array<int> index 750  ******\e[0m " << std::endl << std::endl;
+
+		Array<int> test(750);
+
+		test[0] = 42;
+		test[1] = 24;
+		test[2] = 36;
+		test[3] = 1;
+
+		std::cout << test[750] << std::endl;
 	}
 	catch(const std::exception& e){
 		std::cerr << e.what() << std::endl; }
