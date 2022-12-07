@@ -3,9 +3,6 @@
 
 int	main (void)
 {
-	// ClapTrap	*John = new ClapTrap("John");  //approfondir ==> ClapTrap *John("John") ne fonctionnera pas
-	// ClapTrap	*Hugo = new ClapTrap("Hugo");  //approfondir
-	
 	ClapTrap	John("John");
 	ClapTrap	Hugo("Hugo");
 
@@ -25,7 +22,7 @@ int	main (void)
 	Hugo = John;
 	std::cout <<  std::endl;
 
-	ScavTrap	Chris("Sam");
+	ScavTrap	Chris("Chris");
 
 	std::cout << "ScavTrap " << Chris.getName() << " has " << Chris.getHitPoints() << " hit points!" <<  std::endl;
 	Chris.attack("a random stranger");

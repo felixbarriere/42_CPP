@@ -1,18 +1,30 @@
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(std::string&	name) 
+DiamondTrap::DiamondTrap(void)
 {
-	// : ClapTrap(name)
-	// ClapTrap::getName() += "_clap_name";
-	this->ClapTrap::setName(name + "_clap_name");
-	this->ClapTrap::setHitPoints(FragTrap::getHitPoints());
-	this->ClapTrap::setEnergyPoints(ScavTrap::getEnergyPoints());
-	this->ClapTrap::setAttackDamage(FragTrap::getAttackDamage());
+	FragTrap	myFrag("myFrag");
+	
+	this->ScavTrap::setEnergyPoints(ScavTrap::getEnergyPoints());
+	this->setHitPoints(myFrag.getHitPoints());
+	this->setAttackDamage(myFrag.getAttackDamage());
+	
+	std::cout << "default constructor DiamondTrap called " << std::endl;
+}
+
+DiamondTrap::DiamondTrap(std::string	name) : FragTrap(name), ScavTrap(name), _name(name)
+{
+	FragTrap	myFrag("myFrag");
+
+	ClapTrap::setName(name + "_clap_name");
+
+	this->setEnergyPoints(ScavTrap::getEnergyPoints());
+	this->setHitPoints(myFrag.getHitPoints()); 			//ou passer de private a protected dans ClapTrap si on veut eviter les accesseurs
+	this->setAttackDamage(myFrag.getAttackDamage());
 	
 	std::cout << "constructor DiamondTrap called " << std::endl;
 }
 
-DiamondTrap::DiamondTrap( DiamondTrap&	copy) : ClapTrap(copy)
+DiamondTrap::DiamondTrap( DiamondTrap&	copy) : ClapTrap(copy), FragTrap(copy), ScavTrap(copy)
 {
 	std::cout << "copy constructor DiamondTrap called " << std::endl;
 	*this = copy;
@@ -23,15 +35,26 @@ DiamondTrap::~DiamondTrap()
 	std::cout << "destructor DiamondTrap called " << std::endl;
 }
 
-/* Member functions */
+/*************************************** Member functions ***************************************/
 
 void	DiamondTrap::whoAmI(void)
 {
-	std::cout << this->_name << "has a sub_name: " << ClapTrap::getName() << std::endl;
+	std::cout << this->getName() << " has a sub_name: " << ClapTrap::getName() << std::endl;
 }
 
+void		DiamondTrap::attack(const std::string& target)
+{
+	if (!this->getHitPoints() || !this->getEnergyPoints())
+	{
+		std::cout << "DiamondTrap " << this->getName() <<  "can't attack anymore..." << std::endl;
+		return ;
+	}
+	std::cout << "DiamondTrap " << this->getName() <<  " attacked " << target << ", causing " << 
+						this->getAttackDamage() << " points of damage!" << std::endl;
+	this->setEnergyPoints(this->getEnergyPoints() - 1);
+}
 
-/* Operateurs */
+/*************************************** Operateurs ***************************************/
 
 DiamondTrap&	DiamondTrap::operator=( DiamondTrap& rhs)
 {

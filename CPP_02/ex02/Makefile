@@ -1,26 +1,35 @@
+NAME = canon3
 SRCS = 	main.cpp \
 		Fixed.cpp \
 
-OBJS = $(SRCS:.cpp=.o)
+OBJS_PATH = objects/
+OBJS = ${addprefix ${OBJS_PATH}, ${SRCS:.cpp=.o}}
 
-CC = g++
+CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
-NAME = canon3
+${OBJS_PATH}%.o: ${SRCS_PATH}%.cpp
+		@mkdir -p $(dir $@)
+		${CC} ${CFLAGS} -c $< -o $@ ${INCLUDES}
+		
+#${<:.c=.o}
 
-.c.o:
-		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+
+# .c.o:
+# 		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+
+all:		$(NAME)
 
 $(NAME):	$(OBJS)
 		${CC} ${CFLAGS} $(OBJS) -o $(NAME)
 
-all:		$(NAME)
 
 clean:
 		rm -f $(OBJS)
 
-fclean:
-	rm -f $(NAME) $(OBJS)
+fclean: clean
+	rm -f $(NAME)
+	rm -f -r ${OBJS_PATH}
 
 re: fclean all
 

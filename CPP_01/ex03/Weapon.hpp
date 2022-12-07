@@ -9,7 +9,6 @@ class	Weapon
 	public:
 		Weapon(void);
 		Weapon(std::string new_type);
-		// ~Weapon();
 
 		std::string		getType(void);
 		void			setType(std::string);
@@ -18,13 +17,5 @@ class	Weapon
 	private:
 		std::string	_type;
 };
-
-// Weapon::Weapon(/* args */)
-// {
-// }
-
-// Weapon::~Weapon()
-// {
-// }
 
 #endif

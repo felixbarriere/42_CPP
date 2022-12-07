@@ -1,5 +1,13 @@
 #include "ScavTrap.hpp"
 
+ScavTrap::ScavTrap(void) : ClapTrap()
+{
+	this->setHitPoints(100); 
+	this->setEnergyPoints(50); 
+	this->setAttackDamage(20);
+	std::cout << "default constructor ScavTrap called " << std::endl;
+}
+
 ScavTrap::ScavTrap(std::string	name) : ClapTrap(name)
 {
 	this->setName(name); 
@@ -37,9 +45,7 @@ void		ScavTrap::attack(const std::string& target)
 void	ScavTrap::guardGate(void)
 {
 		std::cout << "ScavTrap " << this->getName() <<  " entered Gate Keeper mode" << std::endl;
-
 }
-
 
 /* Operateurs */
 

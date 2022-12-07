@@ -9,6 +9,7 @@
 class ClapTrap
 {
 	public:
+		ClapTrap(void);
 		ClapTrap(std::string	name);
 		ClapTrap(const ClapTrap&	copy);
 		~ClapTrap();
@@ -31,9 +32,9 @@ class ClapTrap
 
 	private:
 		std::string		_name;
-		int				_hitPoints = 10;
-		int				_energyPoints = 10;
-		int				_attackDamage = 2;	
+		int				_hitPoints;
+		int				_energyPoints;
+		int				_attackDamage;	
 
 };
 

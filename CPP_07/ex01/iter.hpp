@@ -4,8 +4,18 @@
 #include <iostream>
 #include <string>
 
+
 template <typename T>
-void	iter( T array[], unsigned int length, void (*my_function)(T const &))
+void	iter( T const array[], unsigned int length, void (*my_function)(T const &))
+{
+	for (unsigned int j = 0; j < length; j++)
+	{
+		my_function(array[j]);
+	}
+}
+
+template <typename T>
+void	iter( T array[], unsigned int length, void (*my_function)(T &))
 {
 	for (unsigned int j = 0; j < length; j++)
 	{
@@ -23,7 +33,16 @@ void		my_putstr(T const & str)
 /* **************************************************** */
 
 template <typename T, typename U>
-void	iter( T array[], unsigned int length, U (*my_function)(U const &))
+void	iter( T const array[], unsigned int length, U (*my_function)(T const &))
+{
+	for (unsigned int j = 0; j < length; j++)
+	{
+		std::cout << my_function(array[j]) << std::endl;
+	}
+}
+
+template <typename T, typename U>
+void	iter( T array[], unsigned int length, U (*my_function)(T &))
 {
 	for (unsigned int j = 0; j < length; j++)
 	{

@@ -6,7 +6,6 @@ Span::Span(void) {}
 
 Span::Span(unsigned int maxStore) : _sizeMax(maxStore), _size(0)
 {
-	// 	(void)maxStore;
 	std::vector<int>	_array;
 }
 
@@ -16,6 +15,7 @@ Span::Span( Span&	rhs)
 }
 
 Span::~Span() {}
+
 
 /****************************** Operators *********************/
 
@@ -28,6 +28,7 @@ Span&				Span::operator=( const Span& rhs)
 	return (*this);
 }
 
+
 /******************************* Accessors *********************/
 
 
@@ -39,10 +40,13 @@ std::vector<int>	Span::getArray(void) const
 
 /****************************** Member functions *********************/
 
+
 void				Span::displayArray(void) const
 {
 	std::vector<int>::const_iterator it;
 
+	if (this->_size <= 1)
+		throw Span::notEnoughNumbers();
 	std::cout << "Array: ";
 	for (it = this->_array.begin(); it != this->_array.end(); it++)
 		std::cout << *it << "; ";
@@ -64,22 +68,18 @@ int				Span::shortestSpan(void)
 		throw Span::notEnoughNumbers();
 	std::vector<int>::const_iterator it;
 	std::vector<int>::const_iterator it2;
-	// unsigned int	min = 4294967295 ;
-	int	min = 2147483647 ;
-	// int min =  abs(this->_array[0] - this->_array[1]);
+	int	min = MAXINT ;
 
-	// std::sort(this->_array.begin(), this->_array.end());
 	for (it = this->_array.begin(); it != this->_array.end(); it++)
 	{
-		for (it2 = this->_array.begin(); it2 != this->_array.end(); it2++)
+		for (it2 = it + 1; it2 != this->_array.end(); it2++)
 		{
-			if( abs(*(it2) - (*it)) < min)
-				min = abs(*(it2) - (*it));
+			if( abs(*it - *it2) < min && abs(*it2 - *it) <= MAXINT) // && abs(*it2 - *it) >= MININT
+				min = abs(*it - *it2);
 		}
 	}
 	return (min);
 }
-
 
 int				Span::longestSpan(void)
 {
@@ -100,6 +100,16 @@ int				Span::longestSpan(void)
 	return (max);
 }
 
+void			Span::fillSpan(std::vector<int>::const_iterator it,
+						std::vector<int>::const_iterator it2, int tabSize)
+{
+	if (tabSize > this->_sizeMax )
+		throw Span::storageFull();
+	for (; it != it2; it++)
+	{
+		this->addNumber(*it);
+	}
+}
 
 const char*	Span::storageFull::what() const throw()
 { return ("Too many int in your array."); }

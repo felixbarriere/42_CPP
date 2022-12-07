@@ -3,6 +3,8 @@
 
 #define TRUE 1
 #define FALSE 0
+#define MAXINT 2147483647
+#define MININT -2147483648
 
 #include <iostream>
 #include <string>
@@ -31,9 +33,11 @@ class Span
 		void				addNumber(int toStore);
 		int					shortestSpan(void);
 		int					longestSpan(void);
+		void				fillSpan(std::vector<int>::const_iterator,
+										std::vector<int>::const_iterator, int);
 
-		Span(void);
 	private:
+		Span(void);
 		std::vector<int>	_array;
 		int					_sizeMax;
 		int					_size;

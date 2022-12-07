@@ -4,48 +4,73 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
+/* Since you cannot instanciate an abstract class; you need to pass it by pointer or by reference*/
+
 int	main()
 {
-	try
 	{
-		std::cout << " \e[0;33m****** creation des bureaucrats  ******\e[0m " << std::endl << std::endl;
+		try
+		{
+			std::cout << std::endl << " \e[0;33m******  Test ShrubberyCreationForm / RobotomyRequestForm / PresidentialPardonForm ******\e[0m " << std::endl;
+			std::cout << " \e[0;33m******  some with beSigned() / Execute(), some with signForm() / executeForm()ls ******\e[0m " << std::endl << std::endl;
 
-		Bureaucrat	jeanMichel("Jean-Michel", 2);
-		Bureaucrat	jeanPierre("Jean-Pierre", 95);
-		Bureaucrat	jeanPascal("Jean-Pascal", 148);
+			Bureaucrat	jeanMichel("Jean-Michel", 2);
 
-		std::cout << " \e[0;33m****** creation des Shrubbery forms  ******\e[0m " << std::endl;
-		std::cout << " \e[0;33m******  Target 1  ******\e[0m " << std::endl << std::endl;
+			ShrubberyCreationForm	myShrub("FirstTarget");
+			jeanMichel.signForm(myShrub);
+			jeanMichel.executeForm(myShrub);
 
+			std::cout << std::endl;
 
-		// ShrubberyCreationForm	myShrub("FirstTarget");
-		AForm	*myShrub = new ShrubberyCreationForm("FirstTarget");
-		// myShrub->beSigned(jeanMichel); //test 1
-		jeanMichel.signForm(*myShrub);
-		// myShrub.execute(jeanMichel);
-		// jeanMichel.executeForm(*myShrub);
-		
-		std::cout << std::endl << " \e[0;33m******  Target 2  ******\e[0m " << std::endl << std::endl;
+			RobotomyRequestForm		myRoboto("SecondTarget");
+			myRoboto.beSigned(jeanMichel);
+			myRoboto.execute(jeanMichel);
 
+			std::cout << std::endl;
 
-		// RobotomyRequestForm		myRoboto("SecondTarget");
-		// myRoboto.beSigned(jeanMichel); //test 2
-		// myRoboto.execute(jeanMichel);
-		// myRoboto.execute(jeanPascal);  //test3
-
-		std::cout << std::endl << " \e[0;33m******  Target 3  ******\e[0m " << std::endl << std::endl;
-
-
-		// PresidentialPardonForm	myPresidentialForm("ThirdTarget");
-		// myPresidentialForm.beSigned(jeanMichel); //test 4
-		// myPresidentialForm.execute(jeanMichel);
-		// myPresidentialForm.execute(jeanPascal);  //test 5
-
-
-		//free();
+			PresidentialPardonForm	myPresidentialForm("ThirdTarget");
+			myPresidentialForm.beSigned(jeanMichel);
+			myPresidentialForm.execute(jeanMichel);
+		}
+		catch (std::exception & e) {
+			std::cerr << e.what() << std::endl;
+		}
 	}
-	catch (std::exception & e) {
-		std::cerr << e.what() << std::endl;
+	{
+		try
+		{
+			std::cout << std::endl << " \e[0;33m****** Grade too low except for Shrubbery ******\e[0m " << std::endl << std::endl;
+
+			Bureaucrat	jeanMichel("Jean-Michel", 145);
+
+			ShrubberyCreationForm	myShrub("FirstTarget");
+			jeanMichel.signForm(myShrub);
+			jeanMichel.executeForm(myShrub);
+		}
+		catch (std::exception & e) {
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	{
+		try
+		{
+			std::cout << std::endl << " \e[0;33m****** Form not signed ******\e[0m " << std::endl << std::endl;
+
+
+			Bureaucrat	jeanMichel("Jean-Michel", 2);
+
+			ShrubberyCreationForm	myShrub("FirstTarget");
+			jeanMichel.executeForm(myShrub);
+
+			RobotomyRequestForm		myRoboto("SecondTarget");
+			myRoboto.execute(jeanMichel);
+
+			PresidentialPardonForm	myPresidentialForm("ThirdTarget");
+			myPresidentialForm.execute(jeanMichel);
+		}
+		catch (std::exception & e) {
+			std::cerr << e.what() << std::endl;
+		}
 	}
 	return (0);
 }

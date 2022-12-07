@@ -8,6 +8,7 @@
 class ScavTrap : public ClapTrap
 {
 	public:
+		ScavTrap(void);
 		ScavTrap(std::string	name);
 		ScavTrap( ScavTrap&	copy);
 		~ScavTrap();
@@ -16,7 +17,6 @@ class ScavTrap : public ClapTrap
 
 		void 		attack(const std::string& target);
 		void		guardGate(void);
-
 };
 
 #endif

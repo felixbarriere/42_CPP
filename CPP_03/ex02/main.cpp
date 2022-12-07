@@ -22,14 +22,19 @@ int	main (void)
 	Hugo = John;
 	std::cout <<  std::endl;
 
-	ScavTrap	Chris("Sam");
+/* ******************************************************************* */
+
+	ScavTrap	Chris("Chris");
 
 	std::cout << "ScavTrap " << Chris.getName() << " has " << Chris.getHitPoints() << " hit points!" <<  std::endl;
 	Chris.attack("a random stranger");
 	Chris.guardGate();
 	std::cout <<  std::endl;
 
-	FragTrap	Serge("Sam");
+/* ******************************************************************* */
+
+
+	FragTrap	Serge("Serge");
 
 	std::cout << "FragTrap " << Serge.getName() << " has " << Serge.getAttackDamage() << " attack damage!" <<  std::endl;
 	Serge.attack("a random stranger");

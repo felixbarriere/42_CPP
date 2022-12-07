@@ -11,9 +11,10 @@
 class DiamondTrap : public FragTrap, public ScavTrap
 {
 	public:
-		DiamondTrap(std::string&	name);   //_clap_name
+		DiamondTrap(void);
+		DiamondTrap(std::string	name);   //_clap_name
 		DiamondTrap( DiamondTrap&	copy);
-		~DiamondTrap(void);
+		virtual ~DiamondTrap(void);
 
 		DiamondTrap&	operator=( DiamondTrap& rhs);
 

@@ -3,6 +3,7 @@
 Dog::Dog(void) : Animal("Dog")
 {
 	std::cout << "default constructor Dog called " << std::endl;
+
 }
 
 Dog::Dog( Dog&	copy)
@@ -20,6 +21,7 @@ Dog::~Dog(void)
 Dog&	Dog::operator=( const Dog& rhs)
 {
 	std::cout << "Assignment operator called" << std::endl;
+
 	this->_type = rhs._type;
 
 	return (*this);
@@ -28,5 +30,6 @@ Dog&	Dog::operator=( const Dog& rhs)
 void			Dog::makeSound(void) const
 {
 	std::cout << "WAFF" << std::endl;
+
 }
 

@@ -2,7 +2,7 @@ SRCS = 	main.cpp \
 		phonebook.cpp \
 		contact.cpp \
 
-OBJS = $(SRCS:.cpp=.o)
+OBJS = $(SRCS:.c=.o)
 
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
@@ -10,7 +10,7 @@ CFLAGS = -Wall -Werror -Wextra -std=c++98
 NAME = phonebook
 
 .c.o:
-		${CC} ${CFLAGS} -c $< -o ${<:.cpp=.o}
+		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 $(NAME):	$(OBJS)
 		${CC} ${CFLAGS} $(OBJS) -o $(NAME)
@@ -21,7 +21,7 @@ clean:
 		rm -f $(OBJS)
 
 fclean:
-	rm -f $(NAME) $(OBJS)
+	rm -f $(NAME)
 
 re: fclean all
 

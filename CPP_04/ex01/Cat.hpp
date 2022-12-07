@@ -18,9 +18,6 @@ class Cat : public Animal
 		std::string	getIdeasArray(int	ideaNumber) const;
 		void		setIdeasArray(int	ideaNumber, std::string newIdea)const;
 
-		
-
-
 	private:
 		Brain*	_myBrain;
 };

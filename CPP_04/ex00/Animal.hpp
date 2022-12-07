@@ -15,20 +15,11 @@ class Animal
 
 		Animal&	operator=( const Animal& rhs);
 
-		std::string				getType(void) const;
+		const std::string&		getType(void) const;
 		virtual void			makeSound() const;
-
-
 
 	protected:
 		std::string		_type;
 };
-
-
-
-
-
-
-
 
 #endif

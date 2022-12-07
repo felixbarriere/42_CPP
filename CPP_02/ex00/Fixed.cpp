@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cmath>
 #include "Fixed.hpp"
 
 Fixed::Fixed(void) : _i(0)
@@ -36,8 +35,7 @@ Fixed&		Fixed::operator=(const Fixed& rhs)
 {
 	std::cout << "assignment operator called " << std::endl;
 
-	// if (this != &rhs)
-		this->_i = rhs.getRawBits();
+	this->_i = rhs.getRawBits();
 
 	return (*this);
 }

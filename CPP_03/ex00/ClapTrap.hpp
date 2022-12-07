@@ -9,34 +9,33 @@
 class ClapTrap
 {
 	public:
+		ClapTrap(void);
 		ClapTrap(std::string	name);
 		ClapTrap(const ClapTrap&	copy);
 		~ClapTrap();
 
 		ClapTrap&	operator=( const ClapTrap& rhs);
 
-		void attack(const std::string& target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
+		std::string	getName(void);
+		int			getHitPoints(void);
+		int			getEnergyPoints(void);
+		int			getAttackDamage(void);
+
+		void		setName(std::string name);
+		void		setHitPoints(int hitPoints);
+		void		setEnergyPoints(int energyPoints);
+		void		setAttackDamage(int attackDamage);
+
+		void 		attack(const std::string& target);
+		void 		takeDamage(unsigned int amount);
+		void 		beRepaired(unsigned int amount);
 
 	private:
 		std::string		_name;
-		int				_hitPoints = 10;
-		int				_energyPoints = 10;
-		int				_attackDamage = 2;	
+		int				_hitPoints;
+		int				_energyPoints;
+		int				_attackDamage;	
 
 };
-
-
-
-
-
-
-
-
-
-
-
-
 
 #endif

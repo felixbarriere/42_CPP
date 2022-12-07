@@ -89,11 +89,14 @@ void		Form::beSigned(Bureaucrat	bureaucrat)
 		throw Form::GradeTooLowException();
 		// return (0);
 	}
+	else if (this->getIs_signed() == 1)
+	{
+		throw Form::AlreadySigned();
+	}
 	else
 	{
 		this->setIs_signed(1);
 		std::cout << this->getName() << " has been signed by " << bureaucrat.getName() << std::endl;
-		// return (1);
 	}
 }
 
@@ -102,3 +105,6 @@ const char*	Form::GradeTooLowException::what() const throw()
 
 const char*	Form::GradeTooHighException::what() const throw()
 { return ("Le grade demande pour signer ou executer est trop haut."); }
+
+const char*	Form::AlreadySigned::what() const throw()
+{ return ("Le formulaire est deja signe."); }

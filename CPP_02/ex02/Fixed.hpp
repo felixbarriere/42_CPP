@@ -39,15 +39,11 @@ class Fixed
 		float 			toFloat( void ) const;
 		int 			toInt( void ) const;
 
-
-
-
 	private:
 		int					_i;
 		int	const static	_bits = 8;
 };
 
 std::ostream&	operator<<(std::ostream &os, const Fixed &rhs);
-
 
 #endif

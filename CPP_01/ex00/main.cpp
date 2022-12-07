@@ -9,7 +9,7 @@ int	main(void)
 	delete(Zombie_1);
 	
 	Zombie_2->announce();
-	delete(Zombie_2);
+	delete(Zombie_2);  //mettre dans le destructeur?
 
 	randomChump("fifu");
 

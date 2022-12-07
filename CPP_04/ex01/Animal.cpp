@@ -2,14 +2,12 @@
 
 Animal::Animal(void)
 {
-	std::cout << "default constructor Animal called " << std::endl;
-	// this->_myBrain = new Brain();
-
+	// std::cout << "default constructor Animal called " << std::endl;
 }
 
 Animal::Animal(std::string	type) : _type(type)
 {
-	std::cout << "type constructor Animal called " << std::endl;
+	// std::cout << "type constructor Animal called " << std::endl;
 }
 
 Animal::Animal( Animal&	copy)
@@ -20,8 +18,7 @@ Animal::Animal( Animal&	copy)
 
 Animal::~Animal()
 {
-	std::cout << "default destructor Animal called " << std::endl;
-	// delete (this->_myBrain);
+	// std::cout << "default destructor Animal called " << std::endl;
 }
 
 Animal&	Animal::operator=( const Animal& rhs)
@@ -33,11 +30,15 @@ Animal&	Animal::operator=( const Animal& rhs)
 }
 
 std::string		Animal::getType(void) const
-{
-	return (this->_type);
-}
+{ return (this->_type); }
 
 void			Animal::makeSound(void) const
-{
-	std::cout << "undefined animal can't make a sound" << std::endl;
-}
+{ std::cout << "undefined animal can't make a sound" << std::endl; }
+
+
+std::string		Animal::getIdeasArray(int	ideaNumber) const
+{ return (this->_myBrain->getIdeasArray(ideaNumber)); }
+
+
+void		Animal::setIdeasArray(int	ideaNumber, std::string newIdea) const
+{ this->_myBrain->setIdeasArray(ideaNumber, newIdea); }

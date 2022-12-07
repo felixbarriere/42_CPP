@@ -6,7 +6,7 @@
 
 template <typename T>
 
-void	my_swap( T & x, T & y)
+void	swap( T & x, T & y)
 {
 	T tmp;
 
@@ -17,14 +17,14 @@ void	my_swap( T & x, T & y)
 
 template <typename T>
 
-T		my_min(T x, T y)
+T		min(T x, T y)
 {
 	return (x < y ? x : y);
 }
 
 template <typename T>
 
-T		my_max(T x, T y)
+T		max(T x, T y)
 {
 	return (x > y ? x : y);
 }

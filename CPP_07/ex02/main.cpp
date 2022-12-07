@@ -132,5 +132,20 @@ int main()
 	}
 	catch(const std::exception& e) {
 		std::cerr << e.what() << std::endl; }
+	try
+	{
+		std::cout << std::endl << " \e[0;33m****** test getSize function  ******\e[0m " << std::endl << std::endl;
+
+		Array<std::string> test(10);
+
+		test[0] = "Coucou";
+		test[1] = "Coucou";
+		test[2] = "Coucou";
+		test[3] = "?";
+
+		std::cout << test.getSize() << std::endl;
+	}
+	catch(const std::exception& e) {
+		std::cerr << e.what() << std::endl; }
 	return (0);
 }

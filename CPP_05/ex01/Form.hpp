@@ -21,6 +21,8 @@ class Form
 		{ public: virtual const char*	what() const throw(); };
 		class GradeTooHighException : public std::exception
 		{ public: virtual const char*	what() const throw(); };
+		class AlreadySigned : public std::exception
+		{ public: virtual const char*	what() const throw(); };
 		
 		const std::string&	getName() const;
 		bool 				getIs_signed() const;

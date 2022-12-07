@@ -1,14 +1,12 @@
 #ifndef ARRAY_TPP
 #define ARRAY_TPP
-// #include "Array.hpp"
 
 
 template <typename T>
 class Array
 {
 	public:
-		Array(void);
-		Array(size_t n);
+		Array(size_t n = 0LU);
 		Array(const Array& copy);
 		~Array<T>(void);
 
@@ -17,24 +15,21 @@ class Array
 			public: virtual const char*	what() const throw();
 		};
 
-		Array&	operator=( const Array& rhs);
-		T&		operator[]( int index);
+		Array&		operator=( const Array& rhs);
+		T&			operator[]( size_t index);
+		const T&	operator[]( size_t index) const;
 
 		T		getTab(void) const;
-		T		getSize(void) const;
+		size_t	getSize(void) const;
 
 	private:
 		T*		_tab;
-		T		_size;
+		size_t	_size;
 };
 
 /* ******************************************************************* */
 
 /******************* Constructeurs *******************/
-
-template <typename T>
-Array<T>::Array(void) : _tab(NULL), _size(0) 
-{}
 
 template <typename T>
 Array<T>::Array(size_t n) : _tab(new T[n]), _size(n)
@@ -57,7 +52,7 @@ Array<T>&	Array<T>::operator=( const Array& rhs)
 		return (*this);
 	this->_tab = new T[rhs._size];
 	this->_size = rhs._size;
-	for (int i = 0; i < rhs._size; i++)
+	for (size_t i = 0; i < rhs._size; i++)
 	{
 		this->_tab[i] = rhs._tab[i];
 	}
@@ -65,9 +60,18 @@ Array<T>&	Array<T>::operator=( const Array& rhs)
 }
 
 template <typename T>
-T&		Array<T>::operator[]( int index )
+T&		Array<T>::operator[]( size_t index )
 {
-	if (index >= this->_size || index < 0)
+	if (index >= this->_size)
+		throw Array::AccessElement();
+	else
+		return (_tab[index]);
+}
+
+template <typename T>
+const T&	Array<T>::operator[]( size_t index ) const
+{
+	if (index >= this->_size)
 		throw Array::AccessElement();
 	else
 		return (_tab[index]);
@@ -82,7 +86,7 @@ T		Array<T>::getTab(void) const
 }
 
 template <typename T>
-T		Array<T>::getSize(void) const
+size_t		Array<T>::getSize(void) const
 {
 	return (this->_size);
 }

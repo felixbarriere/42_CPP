@@ -16,18 +16,12 @@ class Dog : public Animal
 
 		void		makeSound(void) const;
 		std::string	getIdeasArray(int	ideaNumber) const;
-		void		setIdeasArray(int	ideaNumber, std::string newIdea)const;
+		void		setIdeasArray(int	ideaNumber, std::string newIdea) const;
 
 	
 	private:
 		Brain*	_myBrain;
 };
-
-
-
-
-
-
 
 
 #endif

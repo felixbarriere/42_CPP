@@ -18,23 +18,14 @@ class Animal
 
 		std::string				getType(void) const;
 		virtual void			makeSound() const;
-		virtual std::string		getIdeasArray(int	ideaNumber) const = 0;
-		virtual void			setIdeasArray(int	ideaNumber, std::string newIdea) const = 0;
-
-
-
+		virtual std::string		getIdeasArray(int	ideaNumber) const;
+		virtual void			setIdeasArray(int	ideaNumber, std::string newIdea) const;
 
 	protected:
 		std::string		_type;
-		// Brain*			_myBrain;
+	private:
+		Brain*			_myBrain;
 
-};
-
-
-
-
-
-
-
+};		
 
 #endif

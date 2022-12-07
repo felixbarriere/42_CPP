@@ -13,7 +13,7 @@ int main()
 		array.push_back(9);
 		try
 		{
-			easyfind(array, 10);
+			easyfind(array, 42);
 			std::cout << "TRUE" << std::endl;
 		}
 		catch (const NotInList& e)
@@ -32,7 +32,7 @@ int main()
 		array.push_back(9);
 		try
 		{
-			easyfind(array, 42);
+			easyfind(array, 10);
 			std::cout << "TRUE" << std::endl;
 		}
 		catch (const NotInList& e)

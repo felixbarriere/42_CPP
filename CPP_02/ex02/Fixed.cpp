@@ -4,34 +4,20 @@
 
 /*************** Constructors ***************/
 
-Fixed::Fixed(void) : _i(0)
-{
-	std::cout << "default constructor called " << std::endl;
+Fixed::Fixed(void) : _i(0) 
+{ return ; }
 
-	return ;
-}
-
-Fixed::Fixed(const Fixed&  src)
-{
-	std::cout << "copy constructor called " << std::endl;
-	*this = src;
-}
+Fixed::Fixed(const Fixed&  src) 
+{ *this = src; }
 
 Fixed::Fixed(const int	nb) : _i(nb << this->_bits)
-{
-	std::cout << "int constructor called " << std::endl;
-}
+{ return ; }
 
-Fixed::Fixed(const float	nb) : _i((int)roundf(nb * (1 << this->_bits)))
-{
-	std::cout << "float constructor called " << std::endl;
-}
+Fixed::Fixed(const float	nb) : _i((int)roundf(nb * (1 << this->_bits))) 
+{ return ; }
 
-Fixed::~Fixed()
-{
-	std::cout << "destructor called " << std::endl;
-	return ;
-}
+Fixed::~Fixed() 
+{ return ; }
 
 /*************** Member functions ***************/
 
@@ -84,7 +70,6 @@ int			Fixed::getRawBits(void) const
 
 void 		Fixed::setRawBits( int const raw )
 {
-	std::cout << "setRawBits function called " << std::endl;
 	this->_i = raw;
 }
 
@@ -123,13 +108,19 @@ int			Fixed::operator!=( const Fixed& nb) const
 
 
 Fixed		Fixed::operator+( const Fixed& rhs) const 
-{ return Fixed(this->toFloat() + rhs.toFloat()); }
+{
+	 return Fixed(this->toFloat() + rhs.toFloat()); 
+	/*  return Fixed(((float)this->getRawBits() + (float)rhs.getRawBits()) / 256); */
+}
 
 Fixed		Fixed::operator-( const Fixed& rhs) const 
 { return Fixed(this->toFloat() - rhs.toFloat()); }
 
 Fixed		Fixed::operator*( const Fixed& rhs) const 
-{ return Fixed(this->toFloat() * rhs.toFloat()); }
+{
+	return Fixed(this->toFloat() * rhs.toFloat());
+	/* return Fixed((((float)this->getRawBits() * (float)rhs.getRawBits()) / 256) / 256); */
+}
 
 Fixed		Fixed::operator/( const Fixed& rhs) const 
 { return Fixed(this->toFloat() / rhs.toFloat()); }
@@ -149,6 +140,7 @@ Fixed		Fixed::operator--( void )
 
 Fixed		Fixed::operator++( int nb)
 {
+	(void)nb;
 	Fixed	value = *this;
 	this->_i++;
 	return (value);
@@ -156,6 +148,7 @@ Fixed		Fixed::operator++( int nb)
 
 Fixed		Fixed::operator--( int nb)
 {
+	(void)nb;
 	Fixed	value = *this;
 	this->_i--;
 	return (value);

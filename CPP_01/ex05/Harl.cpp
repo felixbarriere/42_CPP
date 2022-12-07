@@ -8,9 +8,6 @@ void 	Harl::complain( std::string level )
 	std::string		str[4] = { "DEBUG" , "INFO" , "WARNING" , "ERROR"};
 	int				i = 0;
 
-
- 	
-
 	while (i < 4)
 	{
 		if (!level.compare(str[i]))
@@ -50,5 +47,3 @@ void 	Harl::error( void )
 	"This is unacceptable ! I want to speak to the manager now."
 					<< std::endl;
 }
-
-

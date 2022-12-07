@@ -1,6 +1,15 @@
 
 #include "cast.hpp"
 
+/* https://stackoverflow.com/questions/332030/when-should-static-cast-dynamic-cast-const-cast-and-reinterpret-cast-be-used 
+
+- Use dynamic_cast for converting pointers/references within an inheritance hierarchy.
+
+- Use static_cast for ordinary type conversions.
+
+- Use reinterpret_cast for low-level reinterpreting of bit patterns. Use with extreme caution.
+
+- Use const_cast for casting away const/volatile. Avoid this unless you are stuck using a const-incorrect API. */
 
 
 /* 5 types: 

@@ -12,7 +12,7 @@ class	HumanB
 		~HumanB(void);
 
 		void	setWeapon(Weapon&);
-		void	attack(void);
+		void	attack(void) const;
 
 
 	private:

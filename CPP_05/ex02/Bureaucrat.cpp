@@ -91,7 +91,7 @@ void					Bureaucrat::decGrade(void)
 	}
 }
 
-void					Bureaucrat::signForm(AForm	form)
+void					Bureaucrat::signForm(AForm&	form)
 {
 	try 
 	{
@@ -104,7 +104,7 @@ void					Bureaucrat::signForm(AForm	form)
 	}
 }
 
-void					Bureaucrat::executeForm(AForm	form)
+void					Bureaucrat::executeForm(AForm&	form)
 {
 	try 
 	{

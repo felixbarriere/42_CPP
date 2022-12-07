@@ -20,6 +20,11 @@ Fixed::Fixed(const Fixed&  src)
 Fixed::Fixed(const int	nb) : _i(nb << this->_bits)
 {
 	std::cout << "int constructor called " << std::endl;
+	std::cout << "TEST:  " << nb << std::endl;
+	std::cout << "TEST2:  " << this->_i << std::endl;
+	std::cout << "int constructor called " << std::endl;
+
+
 }
 
 Fixed::Fixed(const float	nb) : _i((int)roundf(nb * (1 << this->_bits)))

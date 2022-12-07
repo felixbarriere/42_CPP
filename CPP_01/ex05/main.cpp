@@ -13,7 +13,7 @@ int	main(void)
   	std::cout << "3  --  WARNING" << std::endl;
    	std::cout << "4  --  ERROR" << std::endl;
 
-	std::cin >> input;
+	std::cin >> input;  //getline
 
 	test.complain(input);
 

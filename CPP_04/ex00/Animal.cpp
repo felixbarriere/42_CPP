@@ -3,7 +3,6 @@
 Animal::Animal(void)
 {
 	std::cout << "default constructor Animal called " << std::endl;
-
 }
 
 Animal::Animal(std::string	type) : _type(type)
@@ -20,7 +19,6 @@ Animal::Animal( Animal&	copy)
 Animal::~Animal()
 {
 	std::cout << "default destructor Animal called " << std::endl;
-
 }
 
 Animal&	Animal::operator=( const Animal& rhs)
@@ -31,7 +29,7 @@ Animal&	Animal::operator=( const Animal& rhs)
 	return (*this);
 }
 
-std::string		Animal::getType(void) const
+const std::string&		Animal::getType(void) const
 {
 	return (this->_type);
 }
@@ -39,5 +37,4 @@ std::string		Animal::getType(void) const
 void			Animal::makeSound(void) const
 {
 	std::cout << "undefined animal can't make a sound" << std::endl;
-
 }

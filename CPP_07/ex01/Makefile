@@ -5,17 +5,19 @@ OBJS_PATH = objects/
 OBJS = ${addprefix ${OBJS_PATH}, ${SRCS:.cpp=.o}}
 
 CC = c++
-CFLAGS = -Wall -Werror -Wextra  -std=c++98
-
-${OBJS_PATH}%.o: ${SRCS_PATH}%.cpp
-		@mkdir -p $(dir $@)
-		${CC} ${CFLAGS} -c $< -o $@ ${INCLUDES}
+CFLAGS = -Wall -Werror -Wextra  -std=c++98 -MMD -MP
 
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-		${CC} ${CFLAGS} $(OBJS) -o $(NAME)
+		${CC} $(OBJS) -o $(NAME)
 
+
+-include $(OBJS_PATH)/*.d
+
+${OBJS_PATH}%.o: ${SRCS_PATH}%.cpp
+		@mkdir -p $(@D)
+		${CC} ${CFLAGS} -c $< -o $@ ${INCLUDES}
 
 clean:
 		rm -f $(OBJS)

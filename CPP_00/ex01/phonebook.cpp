@@ -79,7 +79,7 @@ void	phonebook::ft_search(void)
 			std::getline(std::cin, input);
 			if(std::cin.eof() || !input.compare("exit"))
 				return ;
-			else if (!ft_isNumber(input))
+			else if (!ft_isNumber(input) || !input.compare(""))
 				continue;
 			else
 			{
